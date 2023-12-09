@@ -1,0 +1,158 @@
+
+
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.registration-form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-registration {
+  background-color: #f4f4f4;
+  padding: 40px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.registration {
+  flex: 1;
+  max-width: 500px;
+}
+
+.registration img {
+  width: 100%;
+  height: auto;
+}
+
+.registration-form {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(142, 41, 179),
+    rgb(31, 114, 31)
+  );
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-Image {
+  flex: 1;
+}
+
+.login-Image img {
+  width: 100%;
+  height: auto;
+}
+
+.loginArea {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loginHeading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.formElement {
+  display: flex;
+  flex-direction: column;
+}
+
+.username,
+.password {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.userinput,
+.passwordinput {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.login-Image img {
+  max-width: auto;
+  height: 95%;
+}
