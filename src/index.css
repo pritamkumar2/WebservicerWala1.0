@@ -30,12 +30,13 @@ body {
 /* Adjust font sizes for larger screens */
 @media screen and (min-width: 768px) {
   html {
-    font-size: 75%;
+    font-size: 1.1rem;
   }
 }
 
-@media screen and (min-width: 1024px) {
+
+@media screen and (max-width: 900px) {
   html {
-    font-size: 95.5%;
+    font-size: 0.7rem;
   }
 }

@@ -6,62 +6,73 @@ export const Login = () => {
     password: "",
   });
 
-  const handelLogin = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
     console.log(user);
-    alert("clicked login");
+    alert("Clicked login");
   };
-  const handler = (e) => {
+
+  const handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setUser({ ...user, [name]: value });
   };
+
   return (
     <>
-      <div className="container">
-        <div className="login-Image">
-          <img src="./images/login.png" alt="login img" height= "500"  width= "500"/>
-        </div>
-        <div className="loginArea">
-          <h1 className="loginHeading">Login Form</h1>
-          <br />
-          <div className="formElement">
-            <form onSubmit={handelLogin}>
-              <div className="username">
-                <label className="user" htmlFor="username">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  className="userinput"
-                  name="username"
-                  placeholder="Username"
-                  required
-                  autoComplete="off"
-                  value={user.username}
-                  onChange={handler}
-                />
-              </div>
+      <div className="registration-form mt-12">
+        <div className="container grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          {/* Hide the image in mobile view */}
+          <div className="login-image hidden md:block">
+            <img
+              src="./images/login.png"
+              alt="login img"
+              className="w-full h-full"
+            />
+          </div>
+          <div className="login-area p-4">
+            <h1 className="text-2xl md:text-3xl font-bold mb-3">Login Form</h1>
+            <div className="form-element">
+              <form onSubmit={handleLogin}>
+                <div className="mb-4">
+                  <label htmlFor="username" className="block mb-1">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full border rounded px-3 py-2"
+                    name="username"
+                    placeholder="Username"
+                    required
+                    autoComplete="off"
+                    value={user.username}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-              <div className="password">
-                <label className="password" htmlFor="password">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="passwordinput"
-                  name="password"
-                  placeholder="Password"
-                  required
-                  value={user.password}
-                  onChange={handler}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">
-                login
-              </button>
-            </form>
+                <div className="mb-4">
+                  <label htmlFor="password" className="block mb-1">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="w-full border rounded px-3 py-2"
+                    name="password"
+                    placeholder="Password"
+                    required
+                    value={user.password}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-blue-500 text-white py-2 rounded"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
