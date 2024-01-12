@@ -1,14 +1,28 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Counter } from "../components/Counter";
+import { useAuth } from "../store/AuthProvider";
 export const About = () => {
+  let username;
+  const { user } = useAuth();
+  if(user){
+ username = `welcome ${user.username}`
+  }else{
+username ="welcome to our website";
+  }
   return (
     <>
       <section className="text-center w-full mb-8 section1">
+      
         <div className="container about ">
+        
           <div className="mb-8">
+          
             <p>Welcome to Pritam Developer Wala</p>
-            <h1 className="text-3xl lg:text-5xl font-bold">Why Choose Us</h1>
+            
+            <p> <span>{username}</span></p>
+
+            <h2 className="text-3xl lg:text-5xl font-bold">Why Choose Us</h2>
             <p>
               Expertise: Our team consists of experienced IT professionals who
               are passionate about staying up-to-date with the latest industry
@@ -46,7 +60,6 @@ export const About = () => {
             />
           </div>
         </div>
-        
       </section>
       <Counter />
     </>

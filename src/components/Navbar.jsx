@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { useAuth } from "../store/AuthProvider";
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+const {isLoggedIn}=useAuth();
   return (
     <header>
-      <div className=" nav text-white p-4">
+      <div className=" nav text-white p-4 ">
         <div className="flex justify-between items-center">
           <div className="logo">
             <NavLink to="/" className="text-xl font-bold">
@@ -55,7 +56,11 @@ const Navbar = () => {
                   Services
                 </NavLink>
               </li>
-              <li>
+              {isLoggedIn ?  <li>
+                <NavLink to="/Logout" className="hover:text-gray-300">
+                  Logout
+                </NavLink>
+              </li> : <>  <li>
                 <NavLink to="/register" className="hover:text-gray-300">
                   Register
                 </NavLink>
@@ -64,7 +69,9 @@ const Navbar = () => {
                 <NavLink to="/login" className="hover:text-gray-300">
                   Login
                 </NavLink>
-              </li>
+              </li> </> }
+             
+             
             </ul>
           </nav>
         </div>

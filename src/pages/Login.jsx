@@ -1,16 +1,57 @@
 import { useState } from "react";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/AuthProvider";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const Login = () => {
   const [user, setUser] = useState({
-    username: "",
+    email: "",
     password: "",
   });
+  const { storeTokenInLs } = useAuth();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
+  const handleLogin = async (e) => {
+    try {
+      e.preventDefault();
+      console.log(user);
+      const response = await axios.post(
+        "http://localhost:3000/api/login",
+        user
+      );
+      console.log("Server response this:", response);
 
-    console.log(user);
-    alert("Clicked login");
+      if (response.status === 200) {
+        const res_data = response;
+        const data = res_data.data.token;
+        console.log("Server give:", data);
+
+        storeTokenInLs(res_data.data.token);
+
+        // Perform any other actions needed on successful login
+        setUser({ email: "", password: "" });
+        toast.success("login successful");
+        navigate("/");
+      } else {
+        toast.error(
+          `
+${response.data.extraDetails ? response.data.extraDetails : response.data}`,
+          {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        );
+      }
+    } catch (error) {
+      console.log("Login error:", error);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -36,17 +77,17 @@ export const Login = () => {
             <div className="form-element">
               <form onSubmit={handleLogin}>
                 <div className="mb-4">
-                  <label htmlFor="username" className="block mb-1">
-                    Username
+                  <label htmlFor="email" className="block mb-1">
+                    email
                   </label>
                   <input
                     type="text"
                     className="w-full border rounded px-3 py-2"
-                    name="username"
-                    placeholder="Username"
+                    name="email"
+                    placeholder="email"
                     required
                     autoComplete="off"
-                    value={user.username}
+                    value={user.email}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -63,6 +104,7 @@ export const Login = () => {
                     required
                     value={user.password}
                     onChange={handleInputChange}
+                    autoComplete="off"
                   />
                 </div>
                 <button

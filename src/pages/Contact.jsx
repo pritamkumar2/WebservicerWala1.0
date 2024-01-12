@@ -1,20 +1,53 @@
 import React from "react";
+import axios from "axios";
+
+import { useState } from "react";
+import {useAuth} from "../store/AuthProvider";
 
 export const Contact = () => {
   const [names, setName] = React.useState({
-    name: "",
+    username: "",
     email: "",
     message: "",
     phone: "",
   });
+  const [userData, setUserData] = useState(true);
+  const { user } = useAuth();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(names);
-    // Implement form submission logic here (e.g., send email)
-    alert(
-      `Thanks for contacting me, ${names.name}! I'll get back to you shortly.`
-    );
+  if (userData && user) {
+    setName({
+      username: user.username,
+      email: user.email,
+      message: "",
+      phone: user.phone.toString(),
+    },);
+    setUserData(false);
+  }
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      console.log("user enter data", names);
+
+      const response = await axios.post("http://localhost:3000/api/contact", {
+        username: names.username,
+        email: names.email,
+        message: names.message,
+        phone: names.phone.toString(),
+      });
+      console.log("deal :",response);
+      if (response.status == 200) {
+        alert("Contact successfully submitted");
+        console.log("Server response:", response.data);
+        setName({
+          username: names.username,
+          email: names.email,
+          message: "",
+          phone: user.phone.toString(),
+        });
+      }
+    } catch (error) {
+      console.log("fornt contact error:", error);
+    }
   };
 
   const change = (e) => {
@@ -40,10 +73,10 @@ export const Contact = () => {
               <label className="text-gray-600 mb-2">Name</label>
               <input
                 className="border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
-                id="name"
-                name="name"
+                id="username"
+                name="username"
                 type="text"
-                value={names.name}
+                value={names.username}
                 onChange={change}
               />
             </div>
@@ -98,7 +131,6 @@ export const Contact = () => {
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.955855905521!2d86.96641120000001!3d23.677536600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f71f1416aeb3db%3A0x9babc8256d15dc34!2sQehar%20studio&#39;s!5e0!3m2!1sen!2sin!4v1703916832695!5m2!1sen!2sin"
         width="100%"
         height="300"
-        
         allowFullScreen=""
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"

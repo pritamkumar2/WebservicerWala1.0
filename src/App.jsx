@@ -9,6 +9,7 @@ import { Register } from "./pages/Register.jsx";
 import { Login } from "./pages/Login.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { ErrorPage } from "./pages/ErrorPage.jsx";
+import { Logout } from "./pages/Logout.jsx";
 import "./App.css";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/service" element={<Service />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path ="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
