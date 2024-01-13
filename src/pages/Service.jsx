@@ -9,7 +9,7 @@ export const Service = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/service");
+        const response = await axios.get("https://webservicerwalabackend11-0.onrender.com/api/service");
         if (response.status === 200) {
           console.log("service api response", response);
           setDatas(response.data); // Assuming the data is in response.data.data

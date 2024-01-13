@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import {useAuth} from "../store/AuthProvider";
 
@@ -28,7 +29,7 @@ export const Contact = () => {
       e.preventDefault();
       console.log("user enter data", names);
 
-      const response = await axios.post("http://localhost:3000/api/contact", {
+      const response = await axios.post("https://webservicerwalabackend11-0.onrender.com/api/contact", {
         username: names.username,
         email: names.email,
         message: names.message,
@@ -36,7 +37,7 @@ export const Contact = () => {
       });
       console.log("deal :",response);
       if (response.status == 200) {
-        alert("Contact successfully submitted");
+        toast.success("Contact successfully submitted");
         console.log("Server response:", response.data);
         setName({
           username: names.username,
