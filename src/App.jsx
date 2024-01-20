@@ -10,6 +10,11 @@ import { Login } from "./pages/Login.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { ErrorPage } from "./pages/ErrorPage.jsx";
 import { Logout } from "./pages/Logout.jsx";
+import AdminLayout from "./components/AdminLayouts.jsx";
+import AdminUsers from "./pages/adminPages/AdminUsers.jsx";
+import AdminContacts from "./pages/adminPages/AdminContacts.jsx";
+import AdminService from "./pages/adminPages/AdminService.jsx";
+import { AdminUserData } from "./pages/adminPages/AdminUserData.jsx";
 import "./App.css";
 
 function App() {
@@ -24,10 +29,20 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Service />} />
+
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="users" element={<AdminUsers />}/>
+            <Route path="contacts" element={<AdminContacts />} />
+            <Route path="service" element={<AdminService />} />
+            <Route path="users/:id/edit" element={<AdminUserData/>} />
+            
+          </Route>
+
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path ="*" element={<ErrorPage />} />
+         
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

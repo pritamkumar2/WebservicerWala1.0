@@ -12,14 +12,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
-        newestOnTop
+        newestOnTop={false}
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
         draggable
         pauseOnHover
         theme="dark"
-
+        
         
       />
     </React.StrictMode>

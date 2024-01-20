@@ -9,7 +9,7 @@ export const Login = () => {
     email: "",
     password: "",
   });
-  const { storeTokenInLs } = useAuth();
+  const { storeTokenInLs} = useAuth();
 
   const navigate = useNavigate();
   const handleLogin = async (e) => {
@@ -28,7 +28,7 @@ export const Login = () => {
         console.log("Server give:", data);
 
         storeTokenInLs(res_data.data.token);
-
+       
         // Perform any other actions needed on successful login
         setUser({ email: "", password: "" });
         toast.success("login successful");

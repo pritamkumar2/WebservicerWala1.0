@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../store/AuthProvider";
+
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-const {isLoggedIn}=useAuth();
+  const { isLoggedIn, user } = useAuth();
+
+
+
   return (
     <header>
       <div className=" nav text-white p-4 ">
@@ -51,27 +55,40 @@ const {isLoggedIn}=useAuth();
                   Contact
                 </NavLink>
               </li>
+
               <li>
                 <NavLink to="/service" className="hover:text-gray-300">
                   Services
                 </NavLink>
               </li>
-              {isLoggedIn ?  <li>
-                <NavLink to="/Logout" className="hover:text-gray-300">
-                  Logout
-                </NavLink>
-              </li> : <>  <li>
-                <NavLink to="/register" className="hover:text-gray-300">
-                  Register
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/login" className="hover:text-gray-300">
-                  Login
-                </NavLink>
-              </li> </> }
-             
-             
+              {user.dmin ? (
+                <li>
+                  <NavLink to="/admin" className="hover:text-gray-300 navAdmin">
+                    Admin
+                  </NavLink>
+                </li>
+              ) : null}
+              {isLoggedIn ? (
+                <li>
+                  <NavLink to="/Logout" className="hover:text-gray-300">
+                    Logout
+                  </NavLink>
+                </li>
+              ) : (
+                <>
+                  {" "}
+                  <li>
+                    <NavLink to="/register" className="hover:text-gray-300">
+                      Register
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/login" className="hover:text-gray-300">
+                      Login
+                    </NavLink>
+                  </li>{" "}
+                </>
+              )}
             </ul>
           </nav>
         </div>

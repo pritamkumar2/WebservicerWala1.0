@@ -237,7 +237,6 @@ label {
   }
 }
 
-
 .card-img {
   display: flex;
   align-items: center;
@@ -252,3 +251,203 @@ label {
   color: #ffffff;
 }
 
+/* admin page */
+.admin {
+  height: 100vh;
+  width: 100%;
+}
+.navAdmin {
+  background-color: rgb(249, 212, 0);
+  color: black;
+  border-radius: 10%;
+}
+
+.navAdmin:hover {
+  background-color: rgb(220, 208, 168);
+}
+.adminPage {
+  font-size: 6rem;
+}
+
+.adminLayout {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 100vh;
+}
+.adminBox1,
+.adminBox2 {
+  border: 1px solid rgb(85, 84, 84);
+}
+.adminBox1 div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+
+  font-size: 2.5rem;
+  margin-top: 16%;
+  margin-bottom: 80%;
+}
+.adminBox2 div {
+  display: flex;
+  justify-content: center;
+}
+
+.adminUserData {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  margin: 0 auto;
+  table-layout: fixed; /* Set a fixed layout for the table */
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.tableBody {
+  overflow-y: auto;
+  max-height: 500px;
+  width: 100%;
+  color: #f2f2f2; /* Ensure the table body takes up the full width */
+}
+@media (max-width: 668px) {
+  .tableBody {
+    overflow-y: auto;
+    max-height: 300px;
+    width: 100%;
+    color: #f2f2f2; /* Ensure the table body takes up the full width */
+  }
+}
+
+/* Add some spacing between table rows */
+tr {
+  margin-bottom: 10px;
+}
+
+.userDiv {
+  background: rgb(139, 226, 131);
+  color: #b6932b;
+  width: 90%;
+  border-radius: 12px;
+  margin: 10px; /* Add some margin for better spacing between userDiv elements */
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  overflow-x: auto;
+}
+th:nth-child(2)::-webkit-scrollbar,
+td:nth-child(2)::-webkit-scrollbar {
+  display: none;
+}
+
+.adminbuttons li {
+  background-color: #2b878e;
+  margin-bottom: 12%;
+  border-radius: 12px;
+}
+.adminbuttons li:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(134, 234, 149),
+    rgb(177, 189, 72)
+  );
+}
+
+.adminDelbutton {
+  background-color: #ca4747;
+}
+.adminUpdatebutton {
+  background-color: #34a366;
+}
+.adminDelbutton:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(234, 255, 0),
+    rgb(238, 83, 83)
+  );
+  color: black;
+}
+.adminUpdatebutton:hover {
+  background-image: linear-gradient(
+    to right,
+    rgb(234, 255, 0),
+    rgb(238, 83, 83)
+  );
+  color: black;
+}
+/* ///////////////////////////////////// */
+/* Define styles for the contact card */
+/* Basic styling for the page */
+
+h1 {
+  margin-top: 10px;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.main-contact-div {
+  display: flex;
+  flex-wrap: wrap;
+  height: 400px;
+overflow-y: scroll;
+}
+
+
+.main-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 0, 0),
+    rgb(123, 16, 16)
+  );
+  border-radius: 8px;
+}
+
+.main-contact .block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 5px;
+}
+
+.main-contact .blockdelete {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+button {
+  background-color: #cc0000;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #990000;
+}

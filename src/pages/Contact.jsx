@@ -13,7 +13,7 @@ export const Contact = () => {
     phone: "",
   });
   const [userData, setUserData] = useState(true);
-  const { user } = useAuth();
+  const { user,API } = useAuth();
 
   if (userData && user) {
     setName({
