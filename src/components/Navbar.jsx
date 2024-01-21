@@ -61,7 +61,7 @@ const Navbar = () => {
                   Services
                 </NavLink>
               </li>
-              {user.dmin ? (
+              {user.isAdmin ? (
                 <li>
                   <NavLink to="/admin" className="hover:text-gray-300 navAdmin">
                     Admin

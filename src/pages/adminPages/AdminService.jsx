@@ -1,66 +1,161 @@
+import axios from "axios";
 import { useState } from "react";
+import { useAuth } from "../../store/AuthProvider";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminService = () => {
-const [data , setData]= useState({
+  const [data, setData] = useState({
+    service: "",
+    description: "",
+    price: "",
+    provider: "",
+    image: "",
+  });
+  const { AuthorizationToken } = useAuth();
+  const head = {
+    headers: {
+      Authorization: AuthorizationToken,
+    },
+  };
 
-});
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-const handleSubmit=()=>{
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/admin/addServices",
+        data,
+        head
+      );
 
-}
-const handleChange=()=>{
+      if (response.status === 200) {
+        toast.success("Service added successfully!", {
+          position: "bottom-left",
+          autoClose: 1050,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        toast.error("Failed to add service. Please try again.", {
+          position: "bottom-left",
+          autoClose: 1050,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    } catch (error) {
+      console.error("Error adding service:", error);
+      toast.error("An error occurred. Please try again later.", {
+        position: "bottom-left",
+        autoClose: 1050,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
 
-}
+  const handleChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
   return (
     <>
-      <div className="mt-2 text-black">
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 ">
+      <div className="text-black">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1">
           <h1 className="text-white">Add Service</h1>
           <div className="flex flex-col">
-            <label className="text-white mb-2">Name</label>
-            <input
-              className="border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
-              id="username"
-              name="username"
-              type="text"
-              value={data.username}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white mb-2">Email</label>
-            <input
-              className="border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
-              type="email"
-              id="email"
-              name="email"
-              value={data.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white mb-2" htmlFor="phone">
-              Phone No.
+            <label htmlFor="service" className="text-white">
+              Service
             </label>
             <input
-              className="border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
-              type="number"
-              value={data.phone}
-              name="phone"
-              id="phone"
+              className="border rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
+              id="service"
+              name="service"
+              type="text"
+              value={data.service}
               onChange={handleChange}
             />
           </div>
-
+          <div className="flex flex-col">
+            <label htmlFor="description" className="text-white">
+              Description
+            </label>
+            <input
+              className="border rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
+              type="text"
+              id="description"
+              name="description"
+              value={data.description}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white" htmlFor="price">
+              Price
+            </label>
+            <input
+              className="border rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
+              type="text"
+              value={data.price}
+              name="price"
+              id="price"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white" htmlFor="provider">
+              Provider
+            </label>
+            <input
+              className="border rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
+              type="text"
+              value={data.provider}
+              name="provider"
+              id="provider"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white" htmlFor="image">
+              Image link
+            </label>
+            <input
+              className="border rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
+              type="text"
+              value={data.image}
+              name="image"
+              id="image"
+              onChange={handleChange}
+            />
+          </div>
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 w-full"
+            className="bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 w-full"
           >
-            update
+            Add service
           </button>
         </form>
       </div>
     </>
   );
 };
+
 export default AdminService;
