@@ -142,6 +142,7 @@ const Navbar = () => {
                 >
                   Services
                 </NavLink>
+
                 <NavLink
                   onClick={toggleMenu}
                   to="/pricing"
@@ -156,6 +157,12 @@ const Navbar = () => {
                     to="/admin"
                     className="hover:scale-105 duration-300  ease-in-out  p-2 bg-[#ffffff4d] justify-center flex rounded-2xl text-black w-full"
                   >
+
+              </li>
+              {user.isAdmin ? (
+                <li>
+                  <NavLink to="/admin" className="hover:text-gray-300 navAdmin">
+
                     Admin
                   </NavLink>
                 )}
