@@ -1,51 +1,101 @@
-
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="bg-black text-white p-4 md:p-8">
-      <div className="container mx-auto">
-        <div className="flex flex-wrap">
-          <div className="w-full md:w-1/2 mb-4 md:mb-0">
-            <h2 className="text-lg font-bold mb-2 md:mb-4">Contact Us</h2>
-            <p className="mb-2">123 Web Development Street</p>
-            <p className="mb-2">City, Country</p>
-            <p className="mb-2">Email: info@example.com</p>
-            <p>Phone: +123 456 7890</p>
+    <footer class="relative absolute z-1 bottom-0 bg-blueGray-200 mt-10 pt-8 pb-6">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+          <div class="w-full lg:w-6/12 px-4">
+            <h4 class="text-3xl fonat-semibold text-blueGray-700">
+              Let's keep in touch!
+            </h4>
+            <h5 class="text-lg mt-0 mb-2 text-blueGray-600">
+              Find us on any of these platforms, we respond 1-2 business days.
+            </h5>
+            <div class="mt-6 lg:mb-0 mb-6">
+              <button
+                class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button
+                class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-facebook-square"></i>
+              </button>
+              <button
+                class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <i class="fab fa-dribbble"></i>
+              </button>
+              <button
+                class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
+                <a target="-blank" href="https://github.com/shivrajsingh-sde">
+                  <i class="fab fa-github"></i>
+                </a>
+              </button>
+            </div>
           </div>
-          <div className="w-full md:w-1/2 mb-4 md:mb-0">
-            <h2 className="text-lg font-bold mb-2 md:mb-4">Services</h2>
-            <ul>
-              <li>Web Design</li>
-              <li>Web Development</li>
-              <li>E-commerce Solutions</li>
-              {/* Add more services as needed */}
-            </ul>
-          </div>
-          <div className="w-full mb-4 md:mb-0">
-            <h2 className="text-lg font-bold mb-2 md:mb-4">Follow Us</h2>
-            <div className="flex space-x-4">
-              <a href="#" className="text-white">
-                Facebook
-              </a>
-              <a href="#" className="text-white">
-                Twitter
-              </a>
-              <a href="#" className="text-white">
-                LinkedIn
-              </a>
-              {/* Add more social media links as needed */}
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="flex flex-wrap items-top mb-6">
+              <div class="w-full lg:w-4/10 px-4 ml-auto">
+                <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
+                  Useful Links
+                </span>
+                <ul class="list-unstyled">
+                  <li>
+                    <Link
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      to="/"
+                    >
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      to="/contact"
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://github.com/shivrajsingh-sde"
+                    >
+                      Github
+                    </a>
+                  </li>
+                  <li>
+                    <Link
+                      class="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      to="/service"
+                    >
+                      Free Products
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mt-4 md:mt-8">
-          <p className="text-center text-xs">
-            &copy; 2023 Web Development Services. All rights reserved.
-          </p>
+        <hr class="my-6 border-blueGray-300" />
+        <div class="flex flex-wrap items-center md:justify-between justify-center">
+          <div class="w-full  px-4  mx-auto text-center">
+            <div class="text-sm text-blueGray-500 font-semibold  w-full flex flex-row ">
+              <span>Copyright © ShivrajSingh-SDE 2021</span>
+            </div>
+          </div>
         </div>
+        <hr class="my-6 border-blueGray-300" />
       </div>
     </footer>
   );
 };
-
-

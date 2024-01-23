@@ -15,7 +15,7 @@ const AdminContacts = () => {
     };
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/admin/contacts",
+        "https://administration-h2fa.onrender.com/api/admin/contacts",
         head
       );
       setData(response.data);
@@ -34,7 +34,7 @@ const AdminContacts = () => {
       };
       console.log("user table id", id);
       const response = await axios.delete(
-        `http://localhost:3000/api/admin/contacts/delete/${id}`, // Include the id in the URL
+        `http://localhost:3000/api/admin/contacts/delete/${id}`,
         head
       );
       if (response.status === 200) {
@@ -64,21 +64,27 @@ const AdminContacts = () => {
         contacts
       </h1>
 
-      <div className="mt-10 main-contact-div text-white">
+      <div className="mt-10  text-white ">
         {data.map((contact, index) => (
-          <div className="main-contact bg-red-400" key={index}>
-            <div className="block">username: {contact.username}</div>
-            <div className="block">email: {contact.email}</div>
-            <div className="block">phone: {contact.phone}</div>
-            <div className="block">message: {contact.message}</div>
-            <div className="blockdelete">
-              <button
+          <div
+            className=" flex flex-row w-auto p-2 rounded-xl border-2  space-x-10"
+            key={index}
+          >
+            <div className=" flex flex-col items-start bg-[#ffffff1a] p-3 rounded-2xl drop-shadow-2xl shadow-2xl">
+              <div className="block">username: {contact.username}</div>
+              <div className="block">email: {contact.email}</div>
+              <div className="block">phone: {contact.phone}</div>
+              <div className="block">message: {contact.message}</div>
+            </div>
+            <div className=" flex flex-col">
+              <div
                 onClick={() => {
                   mainDel(contact._id);
                 }}
+                className=" p-3 bg-[#ffffff2f] rounded-2xl drop-shadow-2xl shadow-2xl hover:scale-105 ease-in-out cursor-pointer hover:bg-[#ff60603d] h-auto"
               >
                 delete
-              </button>
+              </div>
             </div>
           </div>
         ))}

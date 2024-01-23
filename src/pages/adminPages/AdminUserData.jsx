@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../store/AuthProvider";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 export const AdminUserData = () => {
   const [data, setData] = useState({
@@ -21,7 +21,7 @@ export const AdminUserData = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/admin/users/${params.id}`,
+        `https://administration-h2fa.onrender.com/api/admin/users/${params.id}`,
         head
       );
       setData(response.data.response);
@@ -47,11 +47,11 @@ export const AdminUserData = () => {
 
       // Assuming you have an API endpoint to handle the form data update
       const response = await axios.post(
-        `http://localhost:3000/api/admin/users/${params.id}`,
+        `https://administration-h2fa.onrender.com/api/admin/users/${params.id}`,
         data, // Send the data as the request body
         head
       );
-       
+
       // Handle the response as needed, e.g., show a success message
       toast.success("Update successful:");
     } catch (error) {

@@ -35,14 +35,14 @@ const AuthProvider = ({ children }) => {
       };
 
       const response = await axios.get(
-        "http://localhost:3000/api/UserJwt",
+        "https://administration-h2fa.onrender.com/api/UserJwt",
         axiosConfig
       );
 
       if (response.status === 200) {
         const data = response.data;
         setUser(data.userData);
-        
+
         setIsLoading(false);
 
         console.log("Success from user Auth:", data.userData);
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     userAuthentication();
-  }, []); // Removed unnecessary dependency from useEffect
+  }, []);
 
   return (
     <AuthContext.Provider

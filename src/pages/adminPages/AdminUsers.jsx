@@ -16,7 +16,10 @@ const AdminUsers = () => {
       },
     };
     try {
-      const response = await axios.get("http://localhost:3000/api/users", head);
+      const response = await axios.get(
+        "https://administration-h2fa.onrender.com/api/users",
+        head
+      );
       setUserData(response.data);
       console.log("get alluser", response);
     } catch (error) {
@@ -35,12 +38,10 @@ const AdminUsers = () => {
     };
     console.log("user table id", id);
     const response = await axios.delete(
-      `http://localhost:3000/api/users/delete/${id}`,
+      `https://administration-h2fa.onrender.com/api/users/delete/${id}`,
       head
     );
     if (response.status === 200) {
-
-
       toast.success("User deleted successfully !", {
         position: "bottom-left",
         autoClose: 1050,
@@ -50,7 +51,6 @@ const AdminUsers = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-      
       });
       getAllUsers();
     }
@@ -79,7 +79,9 @@ const AdminUsers = () => {
                   <td>{item.email}</td>
                   <td>{item.phone}</td>
                   <td>
-                    <button className="adminUpdatebutton"><Link to ={`/admin/users/${item._id}/edit`}>edit</Link></button>
+                    <button className="adminUpdatebutton">
+                      <Link to={`/admin/users/${item._id}/edit`}>edit</Link>
+                    </button>
                   </td>
                   <td>
                     <button
