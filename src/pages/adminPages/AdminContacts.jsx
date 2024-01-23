@@ -34,7 +34,7 @@ const AdminContacts = () => {
       };
       console.log("user table id", id);
       const response = await axios.delete(
-        `http://localhost:3000/api/admin/contacts/delete/${id}`,
+        `https://administration-h2fa.onrender.com/api/admin/contacts/delete/${id}`,
         head
       );
       if (response.status === 200) {
