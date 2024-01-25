@@ -9,7 +9,7 @@ export const Login = () => {
     email: "",
     password: "",
   });
-  const { storeTokenInLs} = useAuth();
+  const { storeTokenInLs } = useAuth();
 
   const navigate = useNavigate();
   const handleLogin = async (e) => {
@@ -17,22 +17,21 @@ export const Login = () => {
       e.preventDefault();
       console.log(user);
       const response = await axios.post(
-        "https://webservicerwalabackend11-0.onrender.com/api/login",
+        "https://administration-h2fa.onrender.com/api/login",
         user
       );
       console.log("Server response this:", response);
 
       if (response.status === 200) {
         const res_data = response;
-        const data = res_data.data.token;
-        console.log("Server give:", data);
 
         storeTokenInLs(res_data.data.token);
-       
+
         // Perform any other actions needed on successful login
         setUser({ email: "", password: "" });
         toast.success("login successful");
         navigate("/");
+        window.location.reload();
       } else {
         toast.error(
           `
@@ -62,23 +61,25 @@ ${response.data.extraDetails ? response.data.extraDetails : response.data}`,
 
   return (
     <>
-      <div className="registration-form mt-12">
-        <div className="container grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          {/* Hide the image in mobile view */}
-          <div className="login-image hidden md:block">
+      <div className=" bg-[#ffffff9a] m-2 p-2 max-w-[1100px] mx-auto rounded-2xl drop-shadow-xl shadow-xl  mt-12 ">
+        <div className=" md:flex flex-row   justify-center items-center   mt-4">
+          <div className="  ">
             <img
               src="./images/login.png"
               alt="login img"
-              className="w-full h-full"
+              className="w-[auto] h-auto"
             />
           </div>
-          <div className="login-area p-4">
-            <h1 className="text-2xl md:text-3xl font-bold mb-3">Login Form</h1>
-            <div className="form-element">
-              <form onSubmit={handleLogin}>
+          <div className="    justify-center flex items-center w-full  flex-col p-4">
+            <h1 className="text-2xl md:text-3xl  font-bold mb-3">Login Form</h1>
+            <div className="w-full md:w-auto ">
+              <form
+                onSubmit={handleLogin}
+                className="bg-[#0000000e]  p-3 rounded-2xl"
+              >
                 <div className="mb-4">
-                  <label htmlFor="email" className="block mb-1">
-                    email
+                  <label htmlFor="email" className="block mb-1 ">
+                    Email
                   </label>
                   <input
                     type="text"

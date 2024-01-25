@@ -39,7 +39,7 @@ export const Register = () => {
 
       // Make a POST request to the registration endpoint
       const response = await axios.post(
-        "https://webservicerwalabackend11-0.onrender.com/api/register",
+        "https://administration-h2fa.onrender.com/api/register",
         user,
         {
           headers: {

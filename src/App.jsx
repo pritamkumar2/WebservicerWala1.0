@@ -16,6 +16,8 @@ import AdminContacts from "./pages/adminPages/AdminContacts.jsx";
 import AdminService from "./pages/adminPages/AdminService.jsx";
 import { AdminUserData } from "./pages/adminPages/AdminUserData.jsx";
 import "./App.css";
+import Pricing from "./components/Pricing.jsx";
+import AdminServiceList from "./pages/adminPages/AdminServiceList .jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,20 +30,21 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/service" element={<Service />} />
 
           <Route path="/admin" element={<AdminLayout />}>
-            <Route path="users" element={<AdminUsers />}/>
+            <Route path="users" element={<AdminUsers />} />
             <Route path="contacts" element={<AdminContacts />} />
             <Route path="service" element={<AdminService />} />
-            <Route path="users/:id/edit" element={<AdminUserData/>} />
-            
+            <Route path="serviceUpdate" element={<AdminServiceList />} />
+            <Route path="users/:id/edit" element={<AdminUserData />} />
           </Route>
 
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
-         
+
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

@@ -9,11 +9,13 @@ export const Service = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://webservicerwalabackend11-0.onrender.com/api/service");
+        const response = await axios.get(
+          "https://administration-h2fa.onrender.com/api/service"
+        );
         if (response.status === 200) {
           console.log("service api response", response);
-          setDatas(response.data); // Assuming the data is in response.data.data
-          console.log("hello iam", response.data.data);
+          setDatas(response.data);
+          console.log("hello iam", response.data);
         }
       } catch (error) {
         console.log("service data fetch error :", error);
@@ -21,13 +23,13 @@ export const Service = () => {
       }
     };
 
-    fetchData(); // Call the fetchData function
-  }, []); // Empty dependency array to ensure useEffect runs only once on mount
+    fetchData();
+  }, []);
 
   return (
     <>
       {console.log("main data", datas)}
-      <div className="main-blocks">
+      <div className="main-blocks max-w-[90%] mx-auto space-y-5">
         {datas.map((item, index) => (
           <Cards
             key={index}

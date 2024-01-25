@@ -24,7 +24,11 @@ const AdminService = () => {
 
     try {
       const response = await axios.post(
+
+        "https://administration-h2fa.onrender.com/api/admin/addServices",
+
         "http://localhost:3000/api/admin/addServices",
+
         data,
         head
       );
@@ -78,12 +82,24 @@ const AdminService = () => {
   };
   return (
     <>
+
+      <div className="text-black  h-full justify-center flex items-center">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 bg-[#ffffff77] text-black w-[25%] p-5 rounded-2xl drop-shadow-2xl shadow-2xl"
+        >
+          <h1 className="text-black">Add Service</h1>
+          <div className="flex flex-col">
+            <label htmlFor="service" className="text-black">
+              Name
+
       <div className="text-black">
         <form onSubmit={handleSubmit} className="grid grid-cols-1">
           <h1 className="text-white">Add Service</h1>
           <div className="flex flex-col">
             <label htmlFor="service" className="text-white">
               Service
+
             </label>
             <input
               className="border rounded-md px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300"
@@ -95,7 +111,11 @@ const AdminService = () => {
             />
           </div>
           <div className="flex flex-col">
+
+            <label htmlFor="description" className="">
+
             <label htmlFor="description" className="text-white">
+
               Description
             </label>
             <input
@@ -108,7 +128,11 @@ const AdminService = () => {
             />
           </div>
           <div className="flex flex-col">
+
+            <label className="text-black" htmlFor="price">
+
             <label className="text-white" htmlFor="price">
+
               Price
             </label>
             <input
@@ -121,7 +145,11 @@ const AdminService = () => {
             />
           </div>
           <div className="flex flex-col">
+
+            <label className="text-black" htmlFor="provider">
+
             <label className="text-white" htmlFor="provider">
+
               Provider
             </label>
             <input
@@ -134,7 +162,11 @@ const AdminService = () => {
             />
           </div>
           <div className="flex flex-col">
+
+            <label className="text-black" htmlFor="image">
+
             <label className="text-white" htmlFor="image">
+
               Image link
             </label>
             <input

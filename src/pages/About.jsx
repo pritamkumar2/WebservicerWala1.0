@@ -2,61 +2,57 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Counter } from "../components/Counter";
 import { useAuth } from "../store/AuthProvider";
+import img3 from "../assets/pic3.png";
 export const About = () => {
   let username;
   const { user } = useAuth();
-  if(user){
- username = `welcome ${user.username}`
-  }else{
-username ="welcome to our website";
+  if (user) {
+    username = `welcome ${user.username}`;
+  } else {
+    username = "welcome to our website";
   }
   return (
     <>
-      <section className="text-center w-full mb-8 section1">
-      
-        <div className="container about ">
-        
-          <div className="mb-8">
-          
-            <p>Welcome to Pritam Developer Wala</p>
-            
-            <p> <span>{username}</span></p>
+      <section className="text-center w-full my-18  section1">
+        <div className="  md:flex  my-10 flex-row max-w-[80%] mx-auto">
+          <div className=" relative    md:flex-row   space-y-5  flex-col-reverse  ">
+            <div className="   font-sans h-[100%] w-[100%] md:w-[90%]  text-white space-y-5  ">
+              <p class=" text-2xl decoration-clone font-bold  text-[#ffffff8f]">
+                𝔇𝔦𝔰𝔠𝔬𝔳𝔢𝔯 excellence with our leading IT solutions
+              </p>
+              <span>{username}</span>
+              <h1 class=" lg:text-4xl text-4xl    font-extrabold">
+                Welcome to 𝕍𝕠𝕣𝕥𝕖𝕩ℙ𝕦𝕝𝕤𝕖 𝕋𝕖𝕔𝕙𝕟𝕠𝕝𝕠𝕘𝕚𝕖𝕤
+              </h1>
 
-            <h2 className="text-3xl lg:text-5xl font-bold">Why Choose Us</h2>
-            <p>
-              Expertise: Our team consists of experienced IT professionals who
-              are passionate about staying up-to-date with the latest industry
-              trends. Customization: We understand that every business is
-              unique. That's why we create solutions that are tailored to your
-              specific needs and goals. Customer-Centric Approach: We prioritize
-              your satisfaction and provide top-notch support to address your IT
-              concerns. Affordability: We offer competitive pricing without
-              compromising on the quality of our services. Reliability: Count on
-              us to be there when you need us. We're committed to ensuring your
-              IT environment is reliable and available 24/7.
-            </p>
-            <div className="flex justify-center mt-4">
-              <button
-                type="button"
-                className="bg-blue-600 text-white py-2 px-3 rounded-full mr-4"
-              >
-                <NavLink to="/contact">Contact</NavLink>
-              </button>
-              <button
-                type="button"
-                className="bg-gray-300 text-gray-700 py-2 px-3 rounded-full"
-              >
-                Learn More
-              </button>
+              <p class="modern-paragraph">
+                Embark on a journey of innovation and success as we redefine the
+                possibilities of IT solutions. At 𝕍𝕠𝕣𝕥𝕖𝕩ℙ𝕦𝕝𝕤𝕖 𝕋𝕖𝕔𝕙𝕟𝕠𝕝𝕠𝕘𝕚𝕖𝕤, we
+                don't just meet your needs; we surpass them with our
+                forward-thinking and avant-garde approach. Elevate your business
+                to new heights with our cutting-edge IT services, uniquely
+                crafted to suit your individual requirements. Welcome to a realm
+                where technology meets excellence.
+              </p>
+
+              <img
+                src="https://imgs.search.brave.com/y5gNtaghiOQrMk5mImkEUSUyjVtgzv03j3j1YzTZfSg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9kZXYu/dG8vYXNzZXRzL2V4/cGxvZGluZy1oZWFk/LWRhY2ViMzhkNjI3/ZTZhZTliNzMwZjM2/YTFlMzkwZmNhNTU2/YTQyODlkNWE0MWFi/YjJjMzUwNjhhZDNl/MmM0YjUuc3Zn.svg"
+                alt="Home image"
+                className="h-[7vh] md:block hidden animate-bounce absolute top-0 rounded-2xl drop-shadow-xl shadow-2xl"
+              />
             </div>
           </div>
 
-          <div className="mb-8 hidden lg:block">
-            {/* Hidden in mobile view, visible on medium screens and above */}
+          <div className=" relative   -z-10">
             <img
-              src="./images/about.png"
+              src={img3}
               alt="Home image"
-              className="w-full h-auto"
+              className="w-[full] md:w-[70%] my-5 mx-auto -z-10   rounded-2xl drop-shadow-xl shadow-2xl"
+            />
+            <img
+              src="https://imgs.search.brave.com/y5gNtaghiOQrMk5mImkEUSUyjVtgzv03j3j1YzTZfSg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9kZXYu/dG8vYXNzZXRzL2V4/cGxvZGluZy1oZWFk/LWRhY2ViMzhkNjI3/ZTZhZTliNzMwZjM2/YTFlMzkwZmNhNTU2/YTQyODlkNWE0MWFi/YjJjMzUwNjhhZDNl/MmM0YjUuc3Zn.svg"
+              alt="Home image"
+              className="h-[7vh]  animate-spin absolute bottom-0 rounded-2xl drop-shadow-xl shadow-2xl"
             />
           </div>
         </div>

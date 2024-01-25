@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export const ErrorPage = () => {
   return (
     <>
-      <section className="flex flex-col items-center justify-center h-screen bg-black text-white">
+      <section className="flex flex-col items-center justify-center h-screen bg-[#00000017] rounded-3xl drop-shadow-xl text-white">
         <h2 className="font-bold mb-4 animate-bounce error  text-7xl md:text-9xl lg:text-10xl xl:text-9xl 2xl:text-10xl">
           404 !
         </h2>
@@ -15,10 +15,10 @@ export const ErrorPage = () => {
           into it.
         </p>
         <div className="flex space-x-4">
-          <NavLink to="/" className="text-blue-500 hover:underline">
-            Return Home
+          <NavLink to="/" className="text-blue-800 hover:underline">
+            Home
           </NavLink>
-          <NavLink to="/contact" className="text-blue-500 hover:underline">
+          <NavLink to="/contact" className="text-blue-800 hover:underline">
             Contact
           </NavLink>
         </div>
